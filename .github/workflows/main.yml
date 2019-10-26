@@ -2,11 +2,11 @@ name: Main
 on: push
 jobs:
   test:
-    #strategy:
-    #  matrix:
-    #    os: [ubuntu-latest, windows-latest, macOS-latest]
-    #    rust: [stable, beta, nightly]
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+      rust: [stable, beta, nightly]
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Setup Rust
       uses: hecrj/setup-rust-action@v1
